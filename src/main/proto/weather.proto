@@ -1,0 +1,36 @@
+
+syntax = "proto3";
+package weather;
+option java_multiple_files=true;
+option java_package="com.anirudh.grpc";
+option java_outer_classname="WeatherProto";
+import "google/protobuf/empty.proto";
+
+message WeatherObject{
+  string state=1;
+  double temperature=2;
+  string timestamp=3;
+}
+
+message WeatherRequest{
+  string state=1;
+}
+
+message WeatherResponse{
+  string state=1;
+  double temperature=2;
+  string timestamp=3;
+}
+
+message WeatherListResponse{
+  repeated WeatherObject weather_list =1;
+}
+
+service WeatherService{
+
+  rpc getWeatherByState(WeatherRequest) returns (WeatherResponse);
+  rpc getAllWeather(google.protobuf.Empty) returns (WeatherListResponse);
+}
+
+
+
