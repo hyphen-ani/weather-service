@@ -33,5 +33,6 @@ public class WeatherServiceImpl extends com.anirudh.grpc.WeatherServiceGrpc.Weat
 
         responseObserver.onNext(weatherResponse);
         responseObserver.onCompleted();
+        // Response Builder of gRPC
     }
 }
